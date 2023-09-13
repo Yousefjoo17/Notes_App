@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:note/Views/Widgets/Note_Item.dart';
 
@@ -9,7 +8,7 @@ class NotesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(itemBuilder: (context, index) {
       return Padding(
-        padding: const EdgeInsets.only(bottom: 32),
+        padding: const EdgeInsets.only(bottom: 10),
         child: NoteItem(),
       );
     });
