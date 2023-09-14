@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:note/Constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({required this.hinttext, this.onchanged, this.maxlines = 1});
+ const CustomTextField({required this.hinttext, this.onchanged, this.maxlines = 1});
   final String? hinttext;
-  Function(String)? onchanged;
+  final Function(String)? onchanged;
   final int maxlines;
   @override
   Widget build(BuildContext context) {
