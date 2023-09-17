@@ -6,10 +6,7 @@ import 'package:note/cubits/Add_note/add_note_cubit.dart';
 import 'package:note/models/Note_Model.dart';
 
 class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({
-    super.key,
-  });
-
+  const AddNoteForm({super.key});
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
 }
@@ -42,20 +39,25 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           const SizedBox(height: 48),
-          CustomButton(
-            ontap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
-                NoteModel note = NoteModel(
-                    title: title!,
-                    subTitle: subTitle!,
-                    date: DateTime.now().toString(),
-                    color: Colors.red.value);
-                BlocProvider.of<AddNoteCubit>(context).addNote(note);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                ontap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    NoteModel note = NoteModel(
+                        title: title!,
+                        subTitle: subTitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.red.value);
+                    BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                isloading: state is AddNoteLoading,
+              );
             },
           ),
           const SizedBox(height: 16),
