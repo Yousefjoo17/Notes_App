@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note/Views/Widgets/Edit_note_view.dart';
+import 'package:note/models/Note_Model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.noteModel});
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return const EditNoteView();
         }));
       },
       child: Container(
-          padding: const EdgeInsets.only(top: 12, bottom: 16, left: 12),
+          //padding: const EdgeInsets.only(top: 12, bottom: 16, left: 12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Colors.blue,
+            color: Color(noteModel.color),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -25,8 +26,8 @@ class NoteItem extends StatelessWidget {
             children: [
               ListTile(
                 title: Text(
-                  'Flutter tips',
-                  style: TextStyle(
+                  noteModel.title,
+                  style: const TextStyle(
                     fontSize: 30,
                     color: Colors.black,
                   ),
@@ -34,7 +35,7 @@ class NoteItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16, bottom: 16),
                   child: Text(
-                    'build your carrer now and start your own business',
+                    noteModel.subTitle,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black.withOpacity(.5),
@@ -43,7 +44,7 @@ class NoteItem extends StatelessWidget {
                 ),
                 trailing: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.trash,
                       color: Colors.black,
                     )),
@@ -51,7 +52,7 @@ class NoteItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: Text(
-                  'May,2026',
+                  noteModel.date,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.5),
                   ),
