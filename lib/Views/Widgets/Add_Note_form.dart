@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note/Views/Widgets/Custom_Button.dart';
 import 'package:note/Views/Widgets/Custom_Text_Field.dart';
 import 'package:note/cubits/Add_note/add_note_cubit.dart';
+import 'package:note/cubits/Notes_cubit/notes_cubit.dart';
 import 'package:note/models/Note_Model.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -54,6 +55,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                         date: currDate.toString(),
                         color: Colors.green.value);
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
