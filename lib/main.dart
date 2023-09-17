@@ -4,7 +4,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:note/Constants.dart';
 import 'package:note/Simple_Bloc_Observer.dart';
 import 'package:note/Views/Notes_view.dart';
-import 'package:note/cubits/Add_note/add_note_cubit.dart';
 import 'package:note/models/Note_Model.dart';
 
 void main() async {
