@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note/Constants.dart';
-import 'package:note/Views/Widgets/Colors_list_view.dart';
 import 'package:note/Views/Widgets/Custom_Text_Field.dart';
 import 'package:note/Views/Widgets/Custom_bar.dart';
 import 'package:note/Views/Widgets/EditNote_ColorLitsView.dart';
