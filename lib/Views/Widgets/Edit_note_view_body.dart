@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note/Constants.dart';
+import 'package:note/Views/Widgets/Colors_list_view.dart';
 import 'package:note/Views/Widgets/Custom_Text_Field.dart';
 import 'package:note/Views/Widgets/Custom_bar.dart';
+import 'package:note/Views/Widgets/EditNote_ColorLitsView.dart';
 import 'package:note/cubits/Notes_cubit/notes_cubit.dart';
 import 'package:note/models/Note_Model.dart';
 
@@ -35,7 +38,7 @@ class _EditnoteViewBodyState extends State<EditnoteViewBody> {
               Navigator.pop(context);
             },
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 10),
           CustomTextField(
             hinttext: widget.note.title,
             maxlines: 1,
@@ -51,6 +54,8 @@ class _EditnoteViewBodyState extends State<EditnoteViewBody> {
               subTitle = data;
             },
           ),
+          const SizedBox(height: 20),
+          EditNotesColorsList(note: widget.note),
         ],
       ),
     );

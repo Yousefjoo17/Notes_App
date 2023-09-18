@@ -53,10 +53,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var currDate =
                         formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy]);
                     NoteModel note = NoteModel(
-                        title: title!,
-                        subTitle: subTitle!,
-                        date: currDate.toString(),
-                        color: Colors.green.value);
+                      title: title!,
+                      subTitle: subTitle!,
+                      date: currDate.toString(),
+                      color: const Color(0xff).value,
+                    );
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   } else {
