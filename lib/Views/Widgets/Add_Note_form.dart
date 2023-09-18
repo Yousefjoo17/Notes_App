@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note/Views/Widgets/Colors_list_view.dart';
 import 'package:note/Views/Widgets/Custom_Button.dart';
 import 'package:note/Views/Widgets/Custom_Text_Field.dart';
 import 'package:note/cubits/Add_note/add_note_cubit.dart';
@@ -40,7 +41,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subTitle = value;
             },
           ),
-          const SizedBox(height: 48),
+          const SizedBox(height: 24),
+          const ColorListView(),
+          const SizedBox(height: 24),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(

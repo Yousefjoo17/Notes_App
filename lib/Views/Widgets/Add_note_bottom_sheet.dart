@@ -20,7 +20,7 @@ class AddNoteBottomsheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          print('re build 00000000000000000');
+          print('re build ');
 
           return AbsorbPointer(
             absorbing: state is AddNoteLoading,
@@ -29,7 +29,7 @@ class AddNoteBottomsheet extends StatelessWidget {
                   left: 16,
                   right: 16,
                   bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: const SingleChildScrollView(child: AddNoteForm()),
+              child: SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },
